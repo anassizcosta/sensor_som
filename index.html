@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monitoramento de Movimento</title>
+
+    <link rel="stylesheet" href=".\src\index.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            IoT
+        </div>
+
+        <div>
+            <h1>Monitoramento</h1>
+            <p>Sistema IoT de Detecção de Movimento</p>
+        </div>
+
+        <div class="status">
+            <span id="bolinha"></span>
+            <span id="statusTexto">Conectando...</span>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div>
+                <span class="tag">SISTEMA IoT</span>
+
+                <h2>Monitoramento de Movimento</h2>
+
+                <p>
+                    Acompanhe em tempo real as movimentações
+                    detectadas pelo sensor.
+                </p>
+            </div>
+
+            <div class="icone">
+                ◉
+            </div>
+
+        </section>
+
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="card-topo">
+                    <span class="card-icone">●</span>
+                    <span>Sensor</span>
+                </div>
+
+                <h3 id="sensorStatus">
+                    MONITORANDO
+                </h3>
+
+                <p>
+                    Status do sensor de movimento
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-topo">
+                    <span class="card-icone">#</span>
+                    <span>Ocorrências</span>
+                </div>
+
+                <h3 id="totalOcorrencias">
+                    0
+                </h3>
+
+                <p>
+                    Movimentos registrados
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-topo">
+                    <span class="card-icone">◷</span>
+                    <span>Última detecção</span>
+                </div>
+
+                <h3 id="ultimaHora">
+                    --
+                </h3>
+
+                <p id="ultimaData">
+                    Nenhuma ocorrência
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="alerta" class="alerta escondido">
+
+            <div class="alerta-icone">
+                !
+            </div>
+
+            <div>
+                <strong>MOVIMENTO DETECTADO</strong>
+
+                <p>
+                    O sensor identificou uma movimentação.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section class="historico">
+
+            <div class="titulo-secao">
+
+                <div>
+                    <span class="tag">HISTÓRICO</span>
+
+                    <h2>Ocorrências registradas</h2>
+                </div>
+
+                <button onclick="carregarOcorrencias()">
+                    Atualizar
+                </button>
+
+            </div>
+
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Data e hora</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaOcorrencias">
+
+                        <tr>
+                            <td colspan="6">
+                                Carregando ocorrências...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Sistema IoT de Detecção de Movimento
+        </p>
+
+        <span>
+            ESP32 • MQTT • Flask • PostgreSQL
+        </span>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>
